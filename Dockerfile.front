@@ -13,5 +13,6 @@ RUN cargo install wasm-pack
 RUN cargo install trunk
 RUN rustup target add wasm32-unknown-unknown
 COPY front /root/front
+WORKDIR /root/front
 ENTRYPOINT ["trunk", "serve"]
-CMD ["/root/front/index.html", "--release", "--address", "0.0.0.0"]
+CMD ["--release", "--address", "0.0.0.0"]

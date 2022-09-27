@@ -13,4 +13,5 @@ RUN cargo install wasm-pack
 RUN cargo install trunk
 RUN rustup target add wasm32-unknown-unknown
 COPY back /root/back
-ENTRYPOINT ["/bin/bash"]
+WORKDIR /root/back
+ENTRYPOINT ["cargo", "run"]
