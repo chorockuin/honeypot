@@ -24,13 +24,13 @@ services:
       - "host.docker.internal:host-gateway"
     stdin_open: true
     tty: true
-  # honeypot-db:
-  #   container_name: honeypot-db
-  #   image: mongo
-  #   environment:
-  #     MONGO_INITDB_ROOT_USERNAME: honeypot
-  #     MONGO_INITDB_ROOT_PASSWORD: honeypot
-  #   ports:
-  #     - 27017:27017
-  #   extra_hosts:
-  #     - "host.docker.internal:host-gateway"
+  honeypot-db:
+    container_name: honeypot-db
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: honeypot
+      MONGO_INITDB_ROOT_PASSWORD: honeypot
+    ports:
+      - 27017:27017
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
