@@ -33,7 +33,7 @@ fn login() -> Html{
             let pw = input_pw.cast::<HtmlInputElement>().unwrap().value();
             let login_result = login_result.clone();
             wasm_bindgen_futures::spawn_local(async move {
-                let backend_url = format!("http://127.0.0.1:8081/login?id={id}&pw={pw}");
+                let backend_url = format!("http://host.docker.internal:8081/login?id={id}&pw={pw}");
                 let backend_msg = Request::get(&backend_url).send().await.unwrap().text().await.unwrap();
                 
                 web_sys::console::log_1(&JsString::from(backend_msg.clone()));
